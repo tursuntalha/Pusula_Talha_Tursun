@@ -1,5 +1,5 @@
-#Talha Tursun  
-#talha.tursun2002@gmail.com  
+Talha Tursun  
+talha.tursun2002@gmail.com  
 
 
 
