@@ -7,15 +7,15 @@ talha.tursun2002@gmail.com
 
 1. **Clone the Repository**
 
-2.Navigate to the Project Directory
+2. **Navigate to the Project Directory**
 
    cd Pusula_Talha_Tursun
 
-3. Install Libraries
+3. **Install Libraries**
  
    pip install pandas numpy scikit-learn openpyxl
 
-4.Open Jupyter Notebook
+4. **Open Jupyter Notebook**
 
    jupyter notebook
 
