@@ -20,12 +20,14 @@ talha.tursun2002@gmail.com
    jupyter notebook
 
 
-!!!
+
+
+
 The dataset path is set according to Jupyter Notebook
 
 
 
-##Data Analysis
+## Data Analysis
 
 In this section, I identify anomalies in the dataset using Matplotlib and Seaborn.
 I determine how many missing values exist in each column.
@@ -33,7 +35,7 @@ I check the data types of the columns.
 I find anomalies in columns such as User_id, Nationality, My_Diseases, and datetime64.
 
 
-##Data Preprocessing
+## Data Preprocessing
 
 Here, I begin to correct the anomalies identified during the Data Analysis phase.
 I adjusted the ID, nationality, and gender structures to make them suitable for the dataset.
