@@ -53,7 +53,7 @@ Finally, the dataset was prepared for modeling using StandardScaler.
 
 
 
-##You can find a more detailed and Turkish project description in the documentation file in the repository. :)
+## You can find a more detailed and Turkish project description in the documentation file in the repository. :)
 
 
 
