@@ -26,6 +26,7 @@ The dataset path is set according to Jupyter Notebook
 
 
 ##Data Analysis
+
 In this section, I identify anomalies in the dataset using Matplotlib and Seaborn.
 I determine how many missing values exist in each column.
 I check the data types of the columns.
@@ -33,6 +34,7 @@ I find anomalies in columns such as User_id, Nationality, My_Diseases, and datet
 
 
 ##Data Preprocessing
+
 Here, I begin to correct the anomalies identified during the Data Analysis phase.
 I adjusted the ID, nationality, and gender structures to make them suitable for the dataset.
 I generated new values from date-type data that are more useful for modeling.
