@@ -1,65 +1,51 @@
 Talha Tursun
 talha.tursun2002@gmail.com
 
-Proje A�?klamas?
-Bana verilen case �al??mas?nda belirli kullan?c?lar?n kulland??? ila�lar ve bunlar?n kullan?c? �zerindeki etkilerini g�steren bir veri setinde veriyi modellemeye uygun hale getirmekti
+## Proje Açıklaması
+Bana verilen case çalışmasında belirli kullanıcıların kullandığı ilaçlar ve bunların kullanıcı üzerindeki etkilerini gösteren bir veri setinde veriyi modellemeye uygun hale getirmekti
 
-1
-*Kullanici_id
-Kullan?c?_id k?sm? d�zensizdi ve baz? kullan?c?lar ayn? id de?erine sahipti bunu yeni olu?turudu?um id sut�nu ile de?i?tirerek d�zelttim
+# 1
+**Kullanici_id**
+Kullanici_id kısmı düzensizdi ve bazı kullanıcılar aynı ID değerine sahipti. Bunu yeni oluşturduğum ID sütunu ile değiştirerek düzelttim.
 
-2
-*Cinsiyet
-Veri setinin genelinde ingilizce yaz?m kurallar?na uygun T�rk�e ifadeler yer ald??? i�in bu s�tunundaki female ve male ifadelerini erkek ve kadin ile d�zelterek veriye daha uygun hale getirdim
+# 2
+**Cinsiyet**
+Veri setinin genelinde İngilizce yazım kurallarına uygun Türkçe ifadeler yer aldığı için bu sütundaki "female" ve "male" ifadelerini "erkek" ve "kadın" ile düzelterek veriye daha uygun hale getirdim.
 
-3
-*Uyruk
-Bu s�tunda tek bir �zel de?er oldu?u i�in modelleme �zerinde pek bir etkisi olmayaca??n? d�?�n�p veri setinden �?kard?m
+# 3
+**Uyruk**
+Bu sütunda tek bir özel değer olduğu için modelleme üzerinde pek bir etkisi olmayacağını düşünerek veri setinden çıkardım.
 
+# 4
+**İl**
+**Yan_Etki**
+**Alerjilerim**
+**Kan Grubu**
+Bu sütunlarda bir bozukluk tespit edemediğim için NaN değerleri doldurmak dışında herhangi bir düzenleme yapmadım.
 
+# 5
+**İlac_Adi**
+Bu sütun veriyi doğrudan etkilediğini düşündüğüm için ve içerisinde çok yabancı terimler gördüğüm için bu sütuna dokunmadım.
 
+# 6
+**Doğum_Tarihi**
+**İlac_Baslangic_Tarihi**
+**İlac_Bitis_Tarihi**
+**Yan_Etki_Bildirim_Tarihi**
+Bu sütunlardan doğum tarihi ve ilaç başlangıç tarihini kullanarak model üzerinden etkili olacak yaşı hesapladım ve yaş sütununu veri setine ekledim. İlaç başlangıç ve bitiş tarihlerini kullanarak ilaç kullanım süresini hesapladım ve bunu da veri setine ekledim. İlaç başlangıç ve yan etki bildirim tarihini kullanarak yan etki süresini belirledim ve bunu da veri setine ekledim. Sonra tarih tipindeki bu 4 sütunu veri setimden çıkardım.
 
+# 7
+**Kronik Hastaliklarim**
+**Baba Kronik Hastaliklarim**
+**Anne Kronik Hastaliklarim**
+**Kız Kardeş Kronik Hastaliklarim**
+**Erkek Kardeş Kronik Hastaliklarim**
+Bu sütunlarda çok fazla unique değer olmasından ve bazı bölmelerde 2, bazılarıda 1 hastalık olmasından dolayı karmaşık verilerde maksimum 2 değer olduğu için bu sütunlardaki tüm değerleri 2'ye bölüp 2 farklı sütuna yazdım. "KOAH, diğer" gibi 2 değerden biri diğer olan verilerden diğer ifadesini kaldırdım, NaN olarak ekledim ve " " gibi boş verilere yok ifadesini ekledim. Sadece bir hastalık belirtilen değerlerde 2'ye bölünmesi durumunda hastalık ilk sütuna yazılıyor ve 2. sütuna yok değeri ekleniyor. Böylece model için daha kesin ve daha temiz veriler sağlanıyor. Bu sütunlardaki doldurma işlemini diğer sütunlardan farklı yaptım. Genel olarak sayısal sütunları KNN, kategorik sütunları da SimpleImputer ile doldurdum. Fakat bu sütunların kendi aralarında güçlü bir ilişkiye sahip olduğunu düşündüm ve boş değerleri aynı ailedeki diğer hastalıklardan en çok tekrar edenle doldurdum.
 
-4
-*il
-*Yan_Etki
-*Alerjilerim
-*Kan Grubu
-Bu s�tunlarda bir bozukluk tespit edemedi?im i�in nan de?erleri doldurmak d???nda herhangi bir d�zenleme yapmad?m
+# 8
+**Cinsiyet**
+**Kilo**
+**Boy**
+Bu sütunlarda aralarında bir ilişki olduğunu anlamaya çalıştım. Böylece boş değerleri bu sütunlara göre doldurabilirdim. Fakat herhangi bir ilişki olmadığı için buradaki boş değerleri KNN ile doldurdum.
 
-5
-*Ilac_Adi
-Bu s�tun veriyi do?rudan etkiledi?ini  d�?�nd�?�m i�in ve i�ersinde �ok yabanc? terimler g�rd�?�m i�in bu s�tuna dokunmad?m
-
-6
-*Dogum_Tarihi
-*Ilac_Baslang?c_Tarihi
-*Ilac_Bitis_Tarihi
-*Yan_Etki_Bildirim_Tarihi
-Bu s�tunlardan do?um tarihi ve ila� ba?lang?� tarihini kullanarak model �zerinden etkili olacak ya?? hesaplad?m ve yas s�tunununu veri setine ekledim
-?lac Ba?lang?� ve biti? tarihlerini kullanarak ila� kullan?m s�resini hesaplad?m ve bunu da veri setine ekledim
-?lac ba?lang?� ve yan etki bildirim tarihini kullanarak Yan etki s�resini belirledim ve bunuda veri setine ekledim
-sonra tarih tipindeki bu 4 s�tun� veri setimdem �?kard?m
-
-
-
-7
-*Kronik Hastaliklarim
-*Baba Kronik Hastaliklarim
-*Anne Kronik Hastaliklarim
-*Kiz Kardes Kronik Hastaliklarim
-*Erkek Kardes Kronik Hastaliklarim
-Bu s�tunlarda �ok fazla unique de?er olmas?ndan ve baz? b�lmelerde 2 baz?lar?nda 1 hastal?k olmas?ndan karma??kt? verilerde max 2 de?er oldu?u i�in bu s�tunlardaki t�m de?erleri 2 ye b�l�p 2 farkl? s�tuna yazd?m ve �KOAH, di?er� gibi 2 de?erden biri di?er olan verilerden di?er ifadesini kald?rd?m np.nan olarak ekledim ve � � gibi bo? verilere yok ifadesini ekledim ve sadece bir hastalik belirtilen de?erlede 2 ye b�l�nmesi durumunda hastalik ilk s�tuna yaz?l?yor ve 2. S�tuna yok de?eri ekleniyor B�ylece model i�in daha kesin ve daha temiz veriler veriliyor 
-*Kronik Hastaliklarim
-*Baba Kronik Hastaliklarim
-*Anne Kronik Hastaliklarim
-*Kiz Kardes Kronik Hastaliklarim
-*Erkek Kardes Kronik Hastaliklarim
-Bu s�tunlardaki doldurma i?lemini di?er s�tunlardan farkl? yapt?m genel olarak say?sal s�tunlar? KNN kategorik s�tunlar?da SimpleImputer ile doldurdum fakat bu s�tunlar?n kendi aralar?nda g��l� bir ili?kiye sahip oldu?unu d�?�nd�m ve bo? de?erleri ayn? ailedeki di?er hastal?klardan en �ok tekrar edenle doldurdum
-8
-*Cinsiyet 
-*Kilo
-*Boy 
-Bu s�tunlarda aralar?nda bir ili?ki oldu?u anlamaya �al??t?m b�ylece bo? de?erleri bu s�tunlara g�re doldurabilirdim fakat herhangi bir ili?ki olmad??? i�in buradaki bo? de?erleri KNN ile doldurdum 
-Son
-Son Olarak d�zenlenmi? veride kategorik verileri LabelEncoder ile say?sal ifadelere �evirdim ve bu say?sal ifadeleri StandartScaler kullanarak modellemeye haz?r hale getirdim
+Son  olarak düzenlenmiş veride kategorik verileri LabelEncoder ile sayısal ifadelere çevirdim ve bu sayısal ifadeleri StandardScaler kullanarak modellemeye hazır hale getirdim.
