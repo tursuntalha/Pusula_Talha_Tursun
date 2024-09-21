@@ -1,0 +1,65 @@
+Talha Tursun
+talha.tursun2002@gmail.com
+
+Proje Aç?klamas?
+Bana verilen case çal??mas?nda belirli kullan?c?lar?n kulland??? ilaçlar ve bunlar?n kullan?c? üzerindeki etkilerini gösteren bir veri setinde veriyi modellemeye uygun hale getirmekti
+
+1
+*Kullanici_id
+Kullan?c?_id k?sm? düzensizdi ve baz? kullan?c?lar ayn? id de?erine sahipti bunu yeni olu?turudu?um id sutünu ile de?i?tirerek düzelttim
+
+2
+*Cinsiyet
+Veri setinin genelinde ingilizce yaz?m kurallar?na uygun Türkçe ifadeler yer ald??? için bu sütunundaki female ve male ifadelerini erkek ve kadin ile düzelterek veriye daha uygun hale getirdim
+
+3
+*Uyruk
+Bu sütunda tek bir özel de?er oldu?u için modelleme üzerinde pek bir etkisi olmayaca??n? dü?ünüp veri setinden ç?kard?m
+
+
+
+
+
+4
+*il
+*Yan_Etki
+*Alerjilerim
+*Kan Grubu
+Bu sütunlarda bir bozukluk tespit edemedi?im için nan de?erleri doldurmak d???nda herhangi bir düzenleme yapmad?m
+
+5
+*Ilac_Adi
+Bu sütun veriyi do?rudan etkiledi?ini  dü?ündü?üm için ve içersinde çok yabanc? terimler gördü?üm için bu sütuna dokunmad?m
+
+6
+*Dogum_Tarihi
+*Ilac_Baslang?c_Tarihi
+*Ilac_Bitis_Tarihi
+*Yan_Etki_Bildirim_Tarihi
+Bu sütunlardan do?um tarihi ve ilaç ba?lang?ç tarihini kullanarak model üzerinden etkili olacak ya?? hesaplad?m ve yas sütunununu veri setine ekledim
+?lac Ba?lang?ç ve biti? tarihlerini kullanarak ilaç kullan?m süresini hesaplad?m ve bunu da veri setine ekledim
+?lac ba?lang?ç ve yan etki bildirim tarihini kullanarak Yan etki süresini belirledim ve bunuda veri setine ekledim
+sonra tarih tipindeki bu 4 sütunü veri setimdem ç?kard?m
+
+
+
+7
+*Kronik Hastaliklarim
+*Baba Kronik Hastaliklarim
+*Anne Kronik Hastaliklarim
+*Kiz Kardes Kronik Hastaliklarim
+*Erkek Kardes Kronik Hastaliklarim
+Bu sütunlarda çok fazla unique de?er olmas?ndan ve baz? bölmelerde 2 baz?lar?nda 1 hastal?k olmas?ndan karma??kt? verilerde max 2 de?er oldu?u için bu sütunlardaki tüm de?erleri 2 ye bölüp 2 farkl? sütuna yazd?m ve ‘KOAH, di?er’ gibi 2 de?erden biri di?er olan verilerden di?er ifadesini kald?rd?m np.nan olarak ekledim ve ‘ ‘ gibi bo? verilere yok ifadesini ekledim ve sadece bir hastalik belirtilen de?erlede 2 ye bölünmesi durumunda hastalik ilk sütuna yaz?l?yor ve 2. Sütuna yok de?eri ekleniyor Böylece model için daha kesin ve daha temiz veriler veriliyor 
+*Kronik Hastaliklarim
+*Baba Kronik Hastaliklarim
+*Anne Kronik Hastaliklarim
+*Kiz Kardes Kronik Hastaliklarim
+*Erkek Kardes Kronik Hastaliklarim
+Bu sütunlardaki doldurma i?lemini di?er sütunlardan farkl? yapt?m genel olarak say?sal sütunlar? KNN kategorik sütunlar?da SimpleImputer ile doldurdum fakat bu sütunlar?n kendi aralar?nda güçlü bir ili?kiye sahip oldu?unu dü?ündüm ve bo? de?erleri ayn? ailedeki di?er hastal?klardan en çok tekrar edenle doldurdum
+8
+*Cinsiyet 
+*Kilo
+*Boy 
+Bu sütunlarda aralar?nda bir ili?ki oldu?u anlamaya çal??t?m böylece bo? de?erleri bu sütunlara göre doldurabilirdim fakat herhangi bir ili?ki olmad??? için buradaki bo? de?erleri KNN ile doldurdum 
+Son
+Son Olarak düzenlenmi? veride kategorik verileri LabelEncoder ile say?sal ifadelere çevirdim ve bu say?sal ifadeleri StandartScaler kullanarak modellemeye haz?r hale getirdim
